@@ -13,7 +13,55 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
-	<dependencies>
+	<dependencies>	
+	
+		<!-- mysql 연결하기 위한 jar -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.21</version>
+		</dependency>	
+	
+		<!-- mybatis 사용하기 위한 jar 시작 -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.2.8</version>
+		</dependency>		
+	
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.2.5</version>
+		</dependency>
+		<!-- mybatis 사용하기 위한 jar 끝 -->
+	
+		<!-- 커넥션 풀 사용하기 위한 jar 시작-->
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>20030818.201141</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-pool/commons-pool -->
+		<dependency>
+		    <groupId>commons-pool</groupId>
+		    <artifactId>commons-pool</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		<!-- 커넥션 풀 사용하기 위한 jar 끝-->
+		 
+		
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc --> <!-- 직접 메이븐 사이트에서 복사하여 붙여넣기 -->
+	<!-- 
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>5.2.8.RELEASE</version>
+		</dependency>		
+		 -->
+	
+	
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -115,7 +163,12 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>

@@ -14,8 +14,35 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	
+<!-- 	mssql -->
+<!-- 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> -->
+<!-- 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" /> -->
+<!-- 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" /> -->
+<!-- 		<beans:property name="username" value="scott" /> -->
+<!-- 		<beans:property name="password" value="tiger" /> -->
+<!-- 	</beans:bean> -->
+	
+	<!-- mysql 연결 활성화 -->
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver" /> <!-- 오라클 드라이버로 변경 ! -->
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/test?serverTimezone=UTC" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="1234" />		
+<!-- 		<beans:property name="maxActive" value="20"></beans:property> 커넥션 갯수 20개 설정 -->
+	</beans:bean>
+	
+	<!-- sqlSessionFactory 객체에 sql 만들어서 설정 -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath*:mapper/*Mapper.xml" />
+	</beans:bean>
+	
+	<!-- sqlSession 객체를 가지고 select, insert, delete 실행 -->
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sqlSessionFactory"/>
+	</beans:bean>
+	
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
