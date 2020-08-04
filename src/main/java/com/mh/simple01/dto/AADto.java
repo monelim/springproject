@@ -21,7 +21,4 @@ public class AADto {
 	public void setBb(String bb) {
 		this.bb = bb;
 	}
-	
-	
-
 }

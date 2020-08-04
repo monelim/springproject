@@ -30,4 +30,24 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+
+<!-- encodingFilter 쓰는 이유 :  -->
+<!-- String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "UTF-8"); 같이 매번 쓰는 번거로움을 줄이기 위함 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>

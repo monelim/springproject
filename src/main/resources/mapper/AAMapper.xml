@@ -3,8 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="aa">
-  	<select id="getaa" resultType="com.mh.simple01.dto.AADto">
-  		select * from aa
-  	</select>  
-  </mapper>
+ <mapper namespace="aa">
+ 	<select id="getaa" resultType="com.mh.simple01.dto.AADto">
+ 		select * from aa
+ 	</select>
+ 	
+ 	<insert id="insertaa">
+ 		insert into aa (bb) values ('aaaa')
+ 	</insert>
+ 	
+ 	<update id="updateaa" parameterType="com.mh.simple01.dto.AADto">
+ 		update aa set bb=#{bb}
+ 	</update>
+ 	
+ 	<delete id="deleteaa">
+ 		delete from aa;
+ 	</delete>
+ </mapper>

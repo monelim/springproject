@@ -21,6 +21,11 @@ public class AADao {
 	
 	@Autowired
 	SqlSession sqlSession;
+	
+	public void update(AADto dto) {
+		sqlSession.update("aa.updateaa");
+		System.out.println("¼öÁ¤ µÊ");
+	}
 
 	public List<AADto> select() {		
 		System.out.println("select!!!");		
@@ -31,7 +36,7 @@ public class AADao {
 		return list;
 	}
 
-	public void insert() {		
+	public void insert(AADto dto) {		
 		System.out.println("insert!!!!!");
 		
 		Connection conn = null;

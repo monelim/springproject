@@ -14,13 +14,17 @@ public class AAService {
 	@Autowired
 	AADao aaDao;
 	
-	public void join() {
+	public void join(AADto dto) {
 		aaDao.select();
-		aaDao.insert();
+		aaDao.insert(dto);
 	}
 
 	public List<AADto> selectAll() {		
 		return aaDao.select();
+	}
+	
+	public void update(AADto dto) {
+		aaDao.update(dto);
 	}
 
 }
